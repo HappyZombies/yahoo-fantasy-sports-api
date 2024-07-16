@@ -147,9 +147,10 @@ class YahooFantasy {
         const data = JSON.parse(
           Buffer.concat(chunks)
         );
+        const { access_token, refresh_token } = data;
 
-        this.yahooUserToken = data.access_token;
-        this.yahooRefreshToken = data.refresh_token;
+        this.yahooUserToken = access_token;
+        this.yahooRefreshToken = refresh_token;
 
         if (this.refreshTokenCallback) {
           // run the callback before moving on
